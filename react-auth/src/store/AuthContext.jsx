@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import { useNavigate } from "react-router";
 const AuthContext = React.createContext({
     token: "",
     isLoggedIn:false,
@@ -6,6 +7,7 @@ const AuthContext = React.createContext({
     logout:()=>{}
 })
 export const AuthContextProvider = (props)=>{
+    const navigate = useNavigate();
     const [token, setToken] = useState(null);
     const userIsLoggedIn = !!token;
     const loginHandler = (token)=>{
@@ -13,6 +15,7 @@ export const AuthContextProvider = (props)=>{
     }
     const logoutHandler = ()=>{
         setToken(null);
+        navigate("/auth");
     }
     const contextValue = {
         token:token,

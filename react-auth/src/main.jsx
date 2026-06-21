@@ -6,9 +6,9 @@ import App from "./App.jsx";
 import { AuthContextProvider } from "./store/AuthContext.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <AuthContextProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <AuthContextProvider>
       <App />
-    </BrowserRouter>
-  </AuthContextProvider>,
+    </AuthContextProvider>
+  </BrowserRouter>
 );
